@@ -1,25 +1,9 @@
-def rps
-  puts "Choose a) for rock, b) for paper, and c) for scissors and play: Rock Paper Scissors!"
-  puts "To exit choose d)"
+def rps a
+  w = [0,1,2].sample 
+  puts a == 0 ? 'rock' : a == 1 ? 'paper' : 'scissors'
+  puts a == w ? 'tie' : w > a ? 'comp wins' : 'you win'
+end
 
-  @choice = gets.chomp.downcase
-  if @choice == "d"
-    exit 
-  else 
-    arr = ["a", "b", "c"]
-    computer = arr.sample
-    puts computer
-    if @choice == computer
-      puts "Draw!"
-    elsif @choice == "a" && computer == "b" || @choice == "b" && computer == "c" || @choice == "c" && computer == "a"
-      puts "You Lose!"
-    elsif @choice == "a" && computer == "c" || @choice == "b" && computer == "a" || @choice == "c" && computer == "b"
-      puts "You Win!"
-    else
-      puts "Invalid letter, please try again"
-      rps
-    end    
-  end 
-end 
-
-rps
+puts 'Rock, paper, or scissors?'
+gets
+rps (a = [0,1,2].sample)
