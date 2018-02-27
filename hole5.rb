@@ -1,14 +1,10 @@
-def num
-  a = 10
-  max = 100
-  arr = *a..max
-  
-  arr.each do |i|
-    i = a
-    if max%a == 0
-      puts a
-      a+=i
-    end
-  end
+#Ceasar Cipher 
+require 'pry'
+def cipher(str, c)
+  a = Array('a'..'z')
+  e = Hash[a.zip(a.rotate(c))]
+  str.chars.map { |c| e.fetch(c, " ") }
+
 end
-num
+puts cipher("here is a test", 10).join
+
